@@ -60,17 +60,22 @@
     <Folder Include="dbo\Tables" />
     <Folder Include="Scripts" />
     <Folder Include="PublishProfiles" />
+    <Folder Include="dbo\StoredProcedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\OccasionTypes.sql" />
     <Build Include="dbo\Tables\Occasions.sql" />
     <Build Include="dbo\Tables\Clients.sql" />
     <Build Include="dbo\Tables\Bookings.sql" />
+    <Build Include="dbo\StoredProcedures\spOccasionTypes_GetAvailableTypes.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishProfiles\RahafAppDB.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="RahafAppDB.refactorlog" />
   </ItemGroup>
 </Project>

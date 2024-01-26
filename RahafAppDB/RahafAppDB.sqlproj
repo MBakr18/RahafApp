@@ -67,7 +67,11 @@
     <Build Include="dbo\Tables\Occasions.sql" />
     <Build Include="dbo\Tables\Clients.sql" />
     <Build Include="dbo\Tables\Bookings.sql" />
-    <Build Include="dbo\StoredProcedures\spOccasionTypes_GetAvailableTypes.sql" />
+    <Build Include="dbo\StoredProcedures\spOccasions_GetAvailableOccasions.sql" />
+    <Build Include="dbo\StoredProcedures\spClients_Insert.sql" />
+    <Build Include="dbo\StoredProcedures\spBookings_Insert.sql" />
+    <Build Include="dbo\StoredProcedures\spOccasions_Insert.sql" />
+    <Build Include="dbo\StoredProcedures\spOccasionTypes_GetById.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />

@@ -16,12 +16,57 @@ namespace RahafAppLibrary.Data
         {
             _db = db;
         }
-        public List<OccasionTypeModel> GetAvailableOccasionTypes(DateTime bookingDate, DateTime occasionDate)
+        
+        public List<OccasionModel> GetAvailableOccasions(DateTime occasionDate)
         {
-            return _db.LoadData<OccasionTypeModel, dynamic>("dbo.spOccasionTypes_GetAvailableTypes",
-                new { BookingDate = bookingDate, OccasionDate = occasionDate },
+            return _db.LoadData<OccasionModel, dynamic>("dbo.spOccasions_GetAvailableOccasions",
+                new { OccasionDate = occasionDate.Date },
                 ConnectionStringName,
                 true);
+        }
+
+        public void BookClient(string firstName, string lastName, string phoneNumber,
+            int occasionTypeId, DateTime occasionDate, decimal depositAmount)
+        {
+            ClientModel client = _db.LoadData<ClientModel, dynamic>("dbo.spClients_Insert", 
+                new{ firstName, lastName, phoneNumber }, 
+                ConnectionStringName,
+                true).First();
+
+            OccasionTypeModel occasionType = _db.LoadData<OccasionTypeModel, dynamic>("dbo.spOccasionTypes_GetById",
+                               new { Id = occasionTypeId },
+                                              ConnectionStringName,
+                                              true).First();
+
+            OccasionModel occasion = _db.LoadData<OccasionModel, dynamic>("dbo.spOccasions_Insert",
+                new
+                {
+                    occasionTypeId,
+                    occasionDate.Date
+                },
+                ConnectionStringName,
+                true).First();
+
+            decimal remainAmount = occasionType.Price - depositAmount;
+            _db.SaveData("dbo.spBookings_Insert", 
+                new
+                {
+                    ClientId = client.Id, 
+                    OccasionId = occasion.Id,
+                    DepositAmount = depositAmount,
+                    RemainAmount = remainAmount,
+                    CheckedIn = false
+                }, 
+                ConnectionStringName,
+                true);
+        }
+
+        public void SearchBookings(string lastName)
+        {
+            _db.LoadData<BookingModel, dynamic>("dbo.spBookings_Search",
+                               new { lastName },
+                                              ConnectionStringName,
+                                              true);
         }
     }
 }

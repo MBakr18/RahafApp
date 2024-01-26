@@ -8,7 +8,7 @@ using RahafAppLibrary.Models;
 
 namespace RahafAppLibrary.Data
 {
-    public class SqlData
+    public class SqlData : IDatabaseData
     {
         private readonly ISqlDataAccess _db;
         private const string ConnectionStringName = "SqlDb";
@@ -61,12 +61,15 @@ namespace RahafAppLibrary.Data
                 true);
         }
 
-        public void SearchBookings(string lastName)
+        public List<BookingModel> SearchBookings(string lastName)
         {
-            _db.LoadData<BookingModel, dynamic>("dbo.spBookings_Search",
-                               new { lastName },
-                                              ConnectionStringName,
-                                              true);
+            return _db.LoadData<BookingModel, dynamic>("dbo.spClients_Search",
+                               new
+                               {
+                                   lastName
+                               },
+                               ConnectionStringName,
+                               true);
         }
     }
 }

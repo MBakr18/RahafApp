@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "RahafAppDB", "RahafAppDB\RahafAppDB.sqlproj", "{6C2BBBD9-CD36-4776-A031-80C5F46ECC26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RahafAppLibrary", "RahafAppLibrary\RahafAppLibrary.csproj", "{0D110953-D780-4A50-BE9B-47BB02951B49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RahafAppLibrary", "RahafAppLibrary\RahafAppLibrary.csproj", "{0D110953-D780-4A50-BE9B-47BB02951B49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RahafApp.Desktop", "RahafApp.Desktop\RahafApp.Desktop.csproj", "{EACD6B2B-89F5-464A-BD85-7D4BE0A49E43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{0D110953-D780-4A50-BE9B-47BB02951B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D110953-D780-4A50-BE9B-47BB02951B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D110953-D780-4A50-BE9B-47BB02951B49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EACD6B2B-89F5-464A-BD85-7D4BE0A49E43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EACD6B2B-89F5-464A-BD85-7D4BE0A49E43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EACD6B2B-89F5-464A-BD85-7D4BE0A49E43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EACD6B2B-89F5-464A-BD85-7D4BE0A49E43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
